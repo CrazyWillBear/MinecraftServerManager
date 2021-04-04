@@ -13,9 +13,10 @@ This software is coded in C# for Windows 10 64-bit. As of now it can create, del
 ## Requirements:
 - Windows 10 64-bit
 - An internet connection
-- Command prompt
+- Storage space available
 - Java installed
-- Port 25565 opened in Firewall (if you want to give out IP)
+- Command prompt
+- Port 25565 opened in Firewall (Guide: https://www.youtube.com/watch?v=Nn2BJ9jLYNs)
 
 ## Credits
 Many credits are due here. For starters:
