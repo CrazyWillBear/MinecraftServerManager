@@ -1,5 +1,35 @@
 # MinecraftServerManager
-A console application used to create and manage Minecraft servers running Paper servers
+A console application used to create and manage Minecraft servers.
 
-## How to use right now!
-Right now, the software is in the prealpha stage of development. As of now, with the release available, you can only create new servers. In order to do so, create a new folder and put the contents of the release .zip file in it. Then, create a folder in that folder called `server`. Finally, open a command prompt in the folder and type `minecraftserversoftware -c <Server name>`. I will shorten the name of the .exe so you don't have to type that whole thing out. You can also type `--create` instead of `-c` if you would like. In theory, if you don't want to type the whole thing out you can manually rename the .exe file. In order to delete servers, just go into your `server` folder and delete the servers you have created.
+## Summary
+This software is coded in C# for Windows 10 64-bit. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
+
+## Goals:
+- Create an installer (that automatically opens the necessary ports and checks to see if Java is installed)
+- Integrate NGROK for on the go custom IPs
+- Allow for most versions of Minecraft to be installed
+- Create a directory structure that both looks cool and operates easily
+
+## Requirements:
+- Windows 10 64-bit
+- An internet connection
+- Storage space available
+- Java installed
+- Command prompt
+- Port 25565 opened in Firewall (Guide: https://www.youtube.com/watch?v=Nn2BJ9jLYNs)*
+
+*P.S. It's not mine, and if you can ignore the cringiness it gets the job done
+
+## Credits
+Many credits are due here. For starters:
+- PaperMC (https://papermc.io/)
+- SpigotMC (https://www.spigotmc.org/)
+- Bukkit(https://bukkit.org/)
+- Minecraft/Mojang (https://www.minecraft.net/en-us/)
+- Newtonsoft (https://www.newtonsoft.com/json)
+- ServerJars (https://serverjars.com/)
+
+Paper, Spigot, Bukkit, and Minecraft/Mojang provide server jars. Paper provides their own API to do everything with. For Spigot Bukkit and Minecraft/Mojang, I used ServerJars which has their own API and download mirrors for server jars. I also got help from xsucculentx and from members of StackOverflow (pertaining specifically to the ConsoleSpinner, located in `MinecraftServerManager/Utils/ConsoleSpinner.cs`.
+
+## License
+I have chosen the MIT License so that my software can be taken and used freely. Enjoy!
