@@ -26,7 +26,7 @@ Many credits are due here. For starters:
 - Newtonsoft (https://www.newtonsoft.com/json)
 - ServerJars (https://serverjars.com/)
 
-Paper, Spigot, Bukkit, and Minecraft/Mojang provide server jars. Paper provides their own API to do everything with. For Spigot Bukkit and Minecraft/Mojang, I used ServerJars which has their own API and download mirrors for server jars. I also got help from xsucculentx and from members of StackOverflow (pertaining specifically to the ConsoleSpinner, located in `Utils/ConsoleSpinner.cs`.
+Paper, Spigot, Bukkit, and Minecraft/Mojang provide server jars. Paper provides their own API to do everything with. For Spigot Bukkit and Minecraft/Mojang, I used ServerJars which has their own API and download mirrors for server jars. I also got help from xsucculentx and from members of StackOverflow (pertaining specifically to the ConsoleSpinner, located in `MinecraftServerManager/Utils/ConsoleSpinner.cs`.
 
 ## License
 I have chosen the MIT License so that my software can be taken and used freely. Enjoy!
