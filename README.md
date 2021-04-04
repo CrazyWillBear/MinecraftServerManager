@@ -2,7 +2,7 @@
 A console application used to create and manage Minecraft servers.
 
 ## Summary
-This software is coded in C# for Windows 10x64. It can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang).
+This software is coded in C# for Windows 10 64-bit. It can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang).
 
 ## Goals:
 - Create an installer (that automatically opens the necessary ports and checks to see if Java is installed)
