@@ -19,9 +19,8 @@ This software is coded in C# for Windows 10 64-bit. As of now it can create, del
 - Windows 10 64-bit
 - An internet connection
 - Storage space available
-- Java installed
+- Java installed (installer will check for this)
 - Command prompt
-- Port 25565 opened in Firewall (Guide: https://www.youtube.com/watch?v=Nn2BJ9jLYNs)*
 
 *P.S. It's not mine, and if you can ignore the cringiness it gets the job done
 
