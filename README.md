@@ -30,8 +30,9 @@ Many credits are due here. For starters:
 - Minecraft/Mojang (https://www.minecraft.net/en-us/)
 - Newtonsoft (https://www.newtonsoft.com/json)
 - ServerJars (https://serverjars.com/)
+- Octokit.net (https://github.com/octokit/octokit.net)
 
-Paper, Spigot, Bukkit, and Minecraft/Mojang provide server jars. Paper provides their own API to do everything with. For Spigot Bukkit and Minecraft/Mojang, I used ServerJars which has their own API and download mirrors for server jars. I also got help from members of StackOverflow (pertaining specifically to the ConsoleSpinner, located in `MinecraftServerManager/Utils/ConsoleSpinner.cs`).
+Paper, Spigot, Bukkit, and Minecraft/Mojang provide server jars. Paper provides their own API to do everything with. For Spigot Bukkit and Minecraft/Mojang, I used ServerJars which has their own API and download mirrors for server jars. Octokit makes interacting with GitHub's API super easy and is used in the installer. I also got help from members of StackOverflow (pertaining specifically to the ConsoleSpinner, located in `MinecraftServerManager/Utils/ConsoleSpinner.cs`).
 
 ## License
 I have chosen the MIT License so that my software can be modified and improved freely without restriction. Enjoy!
