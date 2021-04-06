@@ -22,8 +22,6 @@ This software is coded in C# for Windows 10 64-bit. As of now it can create, del
 - Java installed (installer will check for this)
 - Command prompt
 
-*P.S. It's not mine, and if you can ignore the cringiness it gets the job done
-
 ## Credits
 Many credits are due here. For starters:
 - PaperMC (https://papermc.io/)
