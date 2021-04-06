@@ -16,7 +16,7 @@ This software is coded in C# for Windows 10 64-bit. As of now it can create, del
 - Create a directory structure that both looks cool and operates easily
 
 ## Requirements:
-- Windows 10 64-bit
+- Windows (does not work on Mac or Linux, may add support in future but unlikely)
 - An internet connection
 - Storage space available
 - Java installed (installer will check for this)
@@ -26,7 +26,7 @@ This software is coded in C# for Windows 10 64-bit. As of now it can create, del
 Many credits are due here. For starters:
 - PaperMC (https://papermc.io/)
 - SpigotMC (https://www.spigotmc.org/)
-- Bukkit(https://bukkit.org/)
+- Bukkit (https://bukkit.org/)
 - Minecraft/Mojang (https://www.minecraft.net/en-us/)
 - Newtonsoft (https://www.newtonsoft.com/json)
 - ServerJars (https://serverjars.com/)
