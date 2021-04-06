@@ -9,7 +9,7 @@ A console application used to create and manage Minecraft servers.
 - I wrapped the installer into a .msi, which when you run it looks kind of weird but functions perfectly and is better than having a ton of dependencies when you run the installer
 
 ## Summary
-This software is coded in C# for Windows 10 64-bit. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
+This software is coded in C# for Windows. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
 
 ## Goals:
 - Integrate NGROK for on the go custom IPs
