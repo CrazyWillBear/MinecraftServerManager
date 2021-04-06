@@ -2,7 +2,7 @@
 A console application used to create and manage Minecraft servers.
 
 ## News:
-- An installer has been programmed which detects Java installations
+- An installer is being worked on which detects Java installations and fully installs the software automatically
 - Java automatically asks for permission to open ports, no reason to do it manually
 - The software will be installed for the whole computer, not just one user
 - I really want to implement NGROK into this somehow
