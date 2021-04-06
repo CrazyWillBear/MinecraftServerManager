@@ -1,6 +1,12 @@
 # MinecraftServerManager
 A console application used to create and manage Minecraft servers.
 
+## News:
+- An installer has been programmed which detects Java installations
+- Java automatically asks for permission to open ports, no reason to do it manually
+- The software will be installed for the whole computer, not just one user
+- I really want to implement NGROK into this somehow
+
 ## Summary
 This software is coded in C# for Windows 10 64-bit. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
 
