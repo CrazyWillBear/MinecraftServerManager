@@ -77,8 +77,13 @@ namespace MinecraftServerSoftware.Operations
                             Screen.PrintLn("\n::There are no servers on this computer", ConsoleColor.Green);
                             Environment.Exit(0);
                         }
-
                         OperationManager.ListServers();
+                        break;
+                    case CommandOrganizer.Operation.Uninstall:
+                        OperationManager.Uninstall();
+                        break;
+                    case CommandOrganizer.Operation.Update:
+                        OperationManager.Update(Program.arguments[1]);
                         break;
                 }
         }

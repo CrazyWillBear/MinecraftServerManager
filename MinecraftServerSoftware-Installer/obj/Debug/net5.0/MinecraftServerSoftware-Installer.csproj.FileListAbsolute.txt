@@ -16,5 +16,3 @@ C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Installer
 C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Installer\obj\Debug\net5.0\MinecraftServerSoftware-Installer.genruntimeconfig.cache
 C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Installer\bin\Debug\net5.0\Octokit.dll
 C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Installer\obj\Debug\net5.0\MinecraftServerSoftware-Installer.csproj.CopyComplete
-C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Installer\obj\Debug\net5.0\MinecraftServerSoftware_Installer.Properties.Resources.resources
-C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Installer\obj\Debug\net5.0\MinecraftServerSoftware-Installer.csproj.GenerateResource.cache
