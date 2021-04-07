@@ -11,7 +11,9 @@ namespace MinecraftServerSoftware.Operations
             Start,
             CheckVersion,
             WipeWorld,
-            ListServers
+            ListServers,
+            Uninstall,
+            Update
         }
 
         public static bool usePaperOnly;
@@ -57,6 +59,12 @@ namespace MinecraftServerSoftware.Operations
                         case "--list":
                             operationList.Add(Operation.ListServers);
                             break;
+                        case "--uninstall":
+                            operationList.Add(Operation.Uninstall);
+                            break;
+                        case "--update":
+                            operationList.Add(Operation.Update);
+                            break;
                     }
 
             if (args[0].ToCharArray()[0] == '-' && args[0].ToCharArray()[1] != '-')
@@ -94,6 +102,9 @@ namespace MinecraftServerSoftware.Operations
                                     break;
                                 case 'g':
                                     useSpigotOnly = true;
+                                    break;
+                                case 'u':
+                                    operationList.Add(Operation.Update);
                                     break;
                             }
 

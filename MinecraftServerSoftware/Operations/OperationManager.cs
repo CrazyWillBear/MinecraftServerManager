@@ -145,6 +145,68 @@ namespace MinecraftServerSoftware.Operations
                 Screen.PrintLn("     -" + folder.Split('\\')[2], ConsoleColor.Green);
         }
 
+        public static void Uninstall()
+        {
+            var p = new Process();
+            p.StartInfo.UseShellExecute = true;
+            p.StartInfo.CreateNoWindow = false;
+            p.StartInfo.FileName = @".\uninstall\MinecraftServerSoftware-Uninstaller.exe";
+            p.Start();
+            Environment.Exit(0);
+        }
+
+        public static void Update(string servername)
+        {
+            Screen.Print("\n::Updating '" + servername + "'...", ConsoleColor.Green);
+            ConsoleSpinner spinner = new ConsoleSpinner();
+            string[] serverdata = File.ReadAllLines(@".\server\" + servername + @"\serverversion.ver");
+            switch (serverdata[0])
+            {
+                case "Paper":
+                    if (int.Parse(serverdata[2]) < Paper.GetLatestBuild(serverdata[1]))
+                    {
+                        Screen.Print("\n     -Updating Paper jar...");
+                        spinner.Start();
+                        File.Delete(@".\server\" + servername + @"\server.jar");
+                        Paper.InstallPaperJar(serverdata[1], servername);
+                        spinner.Stop();
+                        Screen.Print("\r     -Updated Paper jar    ", ConsoleColor.Green);
+                    }
+                    else
+                    {
+                        Screen.PrintLn("\n     -Paper jar is on the latest version", ConsoleColor.Green);
+                    }
+                    break;
+                case "Spigot":
+                    Screen.Print("\n     -Reinstalling Spigot jar...", ConsoleColor.Green);
+                    spinner.Start();
+                    File.Delete(@".\server\" + servername + @"\server.jar");
+                    ServerJars.InstallSpigotJar(serverdata[1], servername);
+                    spinner.Stop();
+                    Screen.PrintLn("\r     -Reinstalled Spigot jar    ", ConsoleColor.Green);
+                    break;
+                case "Bukkit":
+                    Screen.Print("\n     -Reinstalling Bukkit jar...", ConsoleColor.Green);
+                    spinner.Start();
+                    File.Delete(@".\server\" + servername + @"\server.jar");
+                    ServerJars.InstallBukkitJar(serverdata[1], servername);
+                    spinner.Stop();
+                    Screen.PrintLn("\r     -Reinstalled Bukkit jar    ", ConsoleColor.Green);
+                    break;
+                case "Vanilla":
+                    Screen.Print("\n     -Reinstalling Vanilla jar...", ConsoleColor.Green);
+                    spinner.Start();
+                    File.Delete(@".\server\" + servername + @"\server.jar");
+                    ServerJars.InstallVanillaJar(serverdata[1], servername);
+                    spinner.Stop();
+                    Screen.PrintLn("\r     -Reinstalled Vanilla jar    ", ConsoleColor.Green);
+                    break;
+                default:
+                    Screen.PrintLn("\n     -Server data is corrupted, cannot update", ConsoleColor.Red);
+                    break;
+            }
+        }
+
         public static void SilentStartServer(string servername)
         {
             Process proc = null;
