@@ -2,11 +2,13 @@
 A console application used to create and manage Minecraft servers.
 
 ## News:
+- #### An update is on the way soon, be patient!
 - I think I need to add an uninstall command into the software itself, although that feels super weird... I'll think about other ways to implement the uninstaller
 - Java automatically asks for permission to open ports, no reason to do it manually
 - The software will be installed for the whole computer, not just one user
 - I really want to implement NGROK into this somehow
 - I wrapped the installer into a .msi, which when you run it looks kind of weird but functions perfectly and is better than having a ton of dependencies when you run the installer
+- More into the installer, I fixed a bug with the Java installation process. This means that it will install Java, not OpenJDK which is a bit of a bummer but regardless, it's functional
 
 ## Summary
 This software is coded in C# for Windows. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
