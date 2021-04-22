@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\crazy\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj": {}
+    "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj": {}
   },
   "projects": {
-    "C:\\Users\\crazy\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj": {
+    "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\crazy\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj",
+        "projectUniqueName": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj",
         "projectName": "MinecraftServerSoftware",
-        "projectPath": "C:\\Users\\crazy\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj",
-        "packagesPath": "C:\\Users\\crazy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\crazy\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\obj\\",
+        "projectPath": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\MinecraftServerSoftware.csproj",
+        "packagesPath": "C:\\Users\\wc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\crazy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\wc\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\crazy\\AppData\\Roaming\\Cosmos User Kit\\packages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,6 +41,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1-beta2, )"
+            },
+            "Octokit": {
+              "target": "Package",
+              "version": "[0.50.0, )"
             }
           },
           "imports": [
@@ -61,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

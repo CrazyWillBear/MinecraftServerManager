@@ -59,8 +59,8 @@ namespace MinecraftServerSoftware.Servers
                 wc.DownloadFile(
                     "https://papermc.io/api/v2/projects/paper/versions/" + chosenversion + "/builds/" +
                     GetLatestBuild(chosenversion) + "/downloads/paper-" + chosenversion + "-" +
-                    GetLatestBuild(chosenversion) + ".jar", "./server/" + servername + "/server.jar");
-                File.WriteAllText("./server/" + servername + "/serverversion.ver",
+                    GetLatestBuild(chosenversion) + ".jar", Program.appdata + "/server/" + servername + "/server.jar");
+                File.WriteAllText(Program.appdata + "/server/" + servername + "/serverversion.ver",
                     "Paper\n" + chosenversion + "\n" + GetLatestBuild(chosenversion));
                 wc.Dispose();
                 ConsoleSpinner.Stop();

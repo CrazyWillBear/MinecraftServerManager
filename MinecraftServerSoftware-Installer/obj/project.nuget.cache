@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QGpL5tXdyR4+QHHimoJs21XxDoXQfwpJsfZjldOZh21rB8MYNvhccESdSFx8KS4CN93pYPO0ZcIllogSlHo8ug==",
+  "dgSpecHash": "3EUVhPJwpx9hWA55R18mTka08E+RlcXVvrWupUfBrPYYO3wKex19Y+8rwbLsg4TJYIXpcQevqGJyC2YHUNpbsw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\crazy\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
+  "projectFilePath": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\crazy\\.nuget\\packages\\octokit\\0.50.0\\octokit.0.50.0.nupkg.sha512"
+    "C:\\Users\\wc\\.nuget\\packages\\octokit\\0.50.0\\octokit.0.50.0.nupkg.sha512"
   ],
   "logs": []
 }

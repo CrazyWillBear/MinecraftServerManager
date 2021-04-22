@@ -39,10 +39,11 @@ namespace MinecraftServerSoftware_Installer
                 {
                     Screen.Print("\r     -Continuing without Java installed", ConsoleColor.Yellow);
                 }
-                spinner.Start();
+                ConsoleSpinner Spinner = new ConsoleSpinner();
+                Spinner.Start();
                 PreInstallation.InstallJava();
-                spinner.Stop();
-                Screen.Print("\r     -Java has been installed                    ", ConsoleColor.Yellow);
+                Spinner.Stop();
+                Screen.Print("\r     -Java has been installed                                                                                ", ConsoleColor.Yellow);
             }
 
             Screen.Print(

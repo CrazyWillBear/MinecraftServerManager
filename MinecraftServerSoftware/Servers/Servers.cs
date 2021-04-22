@@ -7,7 +7,7 @@ namespace MinecraftServerSoftware.Servers
     {
         public bool ServerExists(string servername)
         {
-            if (Directory.Exists(@".\server\" + servername))
+            if (Directory.Exists(Program.appdata + @"\server\" + servername))
                 return true;
             return false;
         }

@@ -14,3 +14,4 @@ C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Uninstall
 C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Uninstaller\obj\Debug\net5.0\ref\MinecraftServerSoftware-Uninstaller.dll
 C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Uninstaller\obj\Debug\net5.0\MinecraftServerSoftware-Uninstaller.pdb
 C:\Users\crazy\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Uninstaller\obj\Debug\net5.0\MinecraftServerSoftware-Uninstaller.genruntimeconfig.cache
+C:\Users\wc\Desktop\MinecraftServerSoftware\MinecraftServerSoftware-Uninstaller\obj\Debug\net5.0\MinecraftServerSoftware-Uninstaller.pdb
