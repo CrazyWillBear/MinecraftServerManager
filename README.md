@@ -18,11 +18,11 @@ This software is coded in C# for Windows. As of now it can create, delete, start
 - Create a directory structure that both looks cool and operates easily
 
 ## Requirements:
-- Windows (does not work on Mac or Linux, may add support in future but unlikely)
+- Windows (64-bit prefered) (does not work on Mac or Linux, may add support in future but unlikely)
 - An internet connection
 - Storage space available
 - Java installed (installer will check for this)
-- Command prompt
+- Basic knowledge of Minecraft servers and plugins
 
 ## Credits
 Many credits are due here. For starters:
