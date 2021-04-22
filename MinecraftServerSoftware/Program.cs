@@ -17,13 +17,7 @@ namespace MinecraftServerSoftware
         public static async Task Main(string[] args)
         {
             Checks.CheckForAppData();
-            try {
-                Console.WriteLine("Checking for uninstaller...");
-                await Checks.CheckForUninstaller();
-            }
-            catch (Exception ex) {
-                Console.WriteLine(ex);
-            }
+            await Checks.CheckForUninstaller();
             
             arguments = args;
             programdirectory = Environment.CurrentDirectory;
