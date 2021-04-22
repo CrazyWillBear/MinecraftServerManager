@@ -25,7 +25,12 @@ namespace MinecraftServerSoftware_Installer.Utils
             System.IO.Compression.ZipFile.ExtractToDirectory(destination + @"\MCServerSoftware.zip", destination);
             File.Delete(destination + @"\MCServerSoftware.zip");
         }
-
+        public static void CreateBaseData(string installDir)
+        {
+            Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware");
+            Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat");
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installDir.dat", installDir);
+        }
         public static void CreateEnvVariable(string destination)
         {
             List<string> newValue = new List<string>();

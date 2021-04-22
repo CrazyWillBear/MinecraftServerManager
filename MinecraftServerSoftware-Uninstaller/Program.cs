@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using MinecraftServerSoftware_Uninstaller.Utils;
 
 namespace MinecraftServerSoftware_Uninstaller
@@ -7,7 +8,7 @@ namespace MinecraftServerSoftware_Uninstaller
     {
         static void Main(string[] args)
         {
-            string installDir = Environment.CurrentDirectory.Replace(@"\uninstaller", "");
+            string installDir = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installDir.dat");
             ConsoleSpinner spinner = new ConsoleSpinner();
             Screen.PrintBigLogo();
             Screen.Print("\n::Would you like to continue with the uninstallation? (Y/N)  >>  ", ConsoleColor.Yellow);
