@@ -14,6 +14,7 @@ namespace MinecraftServerSoftware_Uninstaller.Utils
             {
                 File.Delete(file);
             }
+            Directory.Delete(destination);
         }
 
         public static void RemoveEnvVar(string destination)

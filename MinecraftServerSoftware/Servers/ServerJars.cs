@@ -18,8 +18,8 @@ namespace MinecraftServerSoftware.Servers
                 ConsoleSpinner.Start();
                 var wc = new WebClient();
                 wc.DownloadFile("https://serverjars.com/api/fetchJar/spigot/" + chosenversion,
-                    "./server/" + servername + "/server.jar");
-                File.WriteAllText("./server/" + servername + "/serverversion.ver", "Spigot\n" + chosenversion);
+                    Program.appdata + "/server/" + servername + "/server.jar");
+                File.WriteAllText(Program.appdata + "/server/" + servername + "/serverversion.ver", "Spigot\n" + chosenversion);
                 wc.Dispose();
                 ConsoleSpinner.Stop();
                 Screen.PrintLn("\r     -Created Spigot server jar    ", ConsoleColor.Green);
@@ -40,8 +40,8 @@ namespace MinecraftServerSoftware.Servers
                 ConsoleSpinner.Start();
                 var wc = new WebClient();
                 wc.DownloadFile("https://serverjars.com/jars/vanilla/vanilla/vanilla-" + chosenversion + ".jar",
-                    "./server/" + servername + "/server.jar");
-                File.WriteAllText("./server/" + servername + "/serverversion.ver", "Vanilla\n" + chosenversion);
+                    Program.appdata + "/server/" + servername + "/server.jar");
+                File.WriteAllText(Program.appdata + "/server/" + servername + "/serverversion.ver", "Vanilla\n" + chosenversion);
                 wc.Dispose();
                 ConsoleSpinner.Stop();
                 Screen.PrintLn("\r     -Created Vanilla server jar    ", ConsoleColor.Green);
@@ -62,8 +62,8 @@ namespace MinecraftServerSoftware.Servers
                 ConsoleSpinner.Start();
                 var wc = new WebClient();
                 wc.DownloadFile("https://serverjars.com/api/fetchJar/bukkit/" + chosenversion,
-                    "./server/" + servername + "/server.jar");
-                File.WriteAllText("./server/" + servername + "/serverversion.ver", "Bukkit\n" + chosenversion);
+                    Program.appdata + "/server/" + servername + "/server.jar");
+                File.WriteAllText(Program.appdata + "/server/" + servername + "/serverversion.ver", "Bukkit\n" + chosenversion);
                 wc.Dispose();
                 ConsoleSpinner.Stop();
                 Screen.PrintLn("\r     -Created Bukkit server jar    ", ConsoleColor.Green);

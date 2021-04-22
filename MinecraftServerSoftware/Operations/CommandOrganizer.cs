@@ -13,7 +13,9 @@ namespace MinecraftServerSoftware.Operations
             WipeWorld,
             ListServers,
             Uninstall,
-            Update
+            Update,
+            Plugin,
+            Help
         }
 
         public static bool usePaperOnly;
@@ -65,6 +67,12 @@ namespace MinecraftServerSoftware.Operations
                         case "--update":
                             operationList.Add(Operation.Update);
                             break;
+                        case "--plugin":
+                            operationList.Add(Operation.Plugin);
+                            break;
+                        case "--help":
+                            operationList.Add(Operation.Help);
+                            break;
                     }
 
             if (args[0].ToCharArray()[0] == '-' && args[0].ToCharArray()[1] != '-')
@@ -82,7 +90,7 @@ namespace MinecraftServerSoftware.Operations
                                 case 's':
                                     operationList.Add(Operation.Start);
                                     break;
-                                case 'e':
+                                case 'V':
                                     operationList.Add(Operation.CheckVersion);
                                     break;
                                 case 'w':
@@ -105,6 +113,12 @@ namespace MinecraftServerSoftware.Operations
                                     break;
                                 case 'u':
                                     operationList.Add(Operation.Update);
+                                    break;
+                                case 'P':
+                                    operationList.Add(Operation.Plugin);
+                                    break;
+                                case 'h':
+                                    operationList.Add(Operation.Help);
                                     break;
                             }
 

@@ -29,11 +29,11 @@ namespace MinecraftServerSoftware_Installer.Utils
         public static void InstallJava()
         {
             WebClient wc = new WebClient();
-            wc.DownloadFile("https://github.com/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16%2B36/OpenJDK16-jdk_x64_windows_hotspot_16_36.msi", @"C:\Users\" + Environment.UserName + @"\Downloads\open-jdk-installer.msi");
+            wc.DownloadFile("https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244584_d7fc238d0cbf4b0dac67be84580cfb4b", @"C:\Users\" + Environment.UserName + @"\Downloads\java-installer.exe");
             Process proc = System.Diagnostics.Process.Start(@"C:\Users\" + Environment.UserName +
-                                                            @"\Downloads\open-jdk-installer.msi");
+                                                            @"\Downloads\java-installer.exe");
             proc.WaitForExit();
-            File.Delete(@"C:\Users\" + Environment.UserName + @"\Downloads\open-jdk-installer.msi");
+            File.Delete(@"C:\Users\" + Environment.UserName + @"\Downloads\java-installer.exe");
         }
     }
 }

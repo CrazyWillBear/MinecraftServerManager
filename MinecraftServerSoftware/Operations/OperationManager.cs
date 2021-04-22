@@ -18,7 +18,7 @@ namespace MinecraftServerSoftware.Operations
         {
             Screen.Print("\n::What Minecraft version would you like the server to be? >> ", ConsoleColor.Green);
             var chosenversion = Console.ReadLine();
-            Directory.CreateDirectory("./server/" + servername);
+            Directory.CreateDirectory(Program.appdata + "/server/" + servername);
 
             if (!Paper.DoesVersionExist(chosenversion) && !CommandOrganizer.useSpigotOnly &&
                 !CommandOrganizer.useBukkitOnly &&
@@ -46,7 +46,7 @@ namespace MinecraftServerSoftware.Operations
             else
             {
                 Screen.Print("\r::ERROR: This version is not available", ConsoleColor.Red);
-                Directory.Delete("./server/" + servername);
+                Directory.Delete(Program.appdata + "/server/" + servername);
                 Environment.Exit(0);
             }
 
@@ -56,7 +56,7 @@ namespace MinecraftServerSoftware.Operations
             var dedicatedram = Console.ReadLine();
             Screen.Print("     -Assigning dedicated RAM...", ConsoleColor.Green);
             if (dedicatedram == "") dedicatedram = "2";
-            File.WriteAllText("./server/" + servername + "/start.bat",
+            File.WriteAllText(Program.appdata + "/server/" + servername + "/start.bat",
                 "java -Xmx" + dedicatedram + "G -Xms1024M -jar server.jar nogui");
             Screen.Print("\r     -Assigned dedicated RAM        ", ConsoleColor.Green);
 
@@ -77,18 +77,21 @@ namespace MinecraftServerSoftware.Operations
             else
             {
                 Screen.PrintLn("You have not agreed to the EULA, thus ending the process", ConsoleColor.Red);
-                Directory.Delete("./server/" + servername, true);
+                Directory.Delete(Program.appdata + "/server/" + servername, true);
                 Environment.Exit(0);
             }
 
             Screen.Print("\n     -Agreeing to EULA...", ConsoleColor.Green);
             spinner = new ConsoleSpinner();
             spinner.Start();
-            var eula = File.ReadAllText("./server/" + servername + "/eula.txt");
+            var eula = File.ReadAllText(Program.appdata + "/server/" + servername + "/eula.txt");
             eula = eula.Replace("false", "true");
-            File.WriteAllText("./server/" + servername + "/eula.txt", eula);
+            File.WriteAllText(Program.appdata + "/server/" + servername + "/eula.txt", eula);
             spinner.Stop();
             Screen.Print("\r     -Agreed to EULA     ", ConsoleColor.Green);
+            
+            // creating plugins folder
+            Directory.CreateDirectory(Program.appdata + "/server/" + servername + "/plugins");
 
             // starting or saving server
             Screen.PrintLn("\nWould you like to start the server? (Y/N) >> ", ConsoleColor.Green);
@@ -108,7 +111,7 @@ namespace MinecraftServerSoftware.Operations
 
         public static void DeleteServer(string servername)
         {
-            if (Directory.Exists(@".\server\" + servername))
+            if (Directory.Exists(Program.appdata + @"\server\" + servername))
             {
                 Screen.PrintLn("\n::Are you sure you would like to delete '" + servername + "'? (Y/N)",
                     ConsoleColor.Green);
@@ -134,14 +137,14 @@ namespace MinecraftServerSoftware.Operations
                 Environment.Exit(0);
             }
 
-            Directory.Delete(@".\server\" + servername, true);
+            Directory.Delete(Program.appdata + @"\server\" + servername, true);
             Screen.PrintLn("\r     -Successfully deleted '" + servername + "'              ", ConsoleColor.Green);
         }
 
         public static void ListServers()
         {
             Screen.PrintLn("\n::Servers", ConsoleColor.Green);
-            foreach (var folder in Directory.GetDirectories(@".\server\"))
+            foreach (var folder in Directory.GetDirectories(Program.appdata + @"\server\"))
                 Screen.PrintLn("     -" + folder.Split('\\')[2], ConsoleColor.Green);
         }
 
@@ -150,7 +153,7 @@ namespace MinecraftServerSoftware.Operations
             var p = new Process();
             p.StartInfo.UseShellExecute = true;
             p.StartInfo.CreateNoWindow = false;
-            p.StartInfo.FileName = @".\uninstall\MinecraftServerSoftware-Uninstaller.exe";
+            p.StartInfo.FileName = Program.appdata + @".\uninstall\MinecraftServerSoftware-Uninstaller.exe";
             p.Start();
             Environment.Exit(0);
         }
@@ -159,7 +162,7 @@ namespace MinecraftServerSoftware.Operations
         {
             Screen.Print("\n::Updating '" + servername + "'...", ConsoleColor.Green);
             ConsoleSpinner spinner = new ConsoleSpinner();
-            string[] serverdata = File.ReadAllLines(@".\server\" + servername + @"\serverversion.ver");
+            string[] serverdata = File.ReadAllLines(Program.appdata + @"\server\" + servername + @"\serverversion.ver");
             switch (serverdata[0])
             {
                 case "Paper":
@@ -167,7 +170,7 @@ namespace MinecraftServerSoftware.Operations
                     {
                         Screen.Print("\n     -Updating Paper jar...");
                         spinner.Start();
-                        File.Delete(@".\server\" + servername + @"\server.jar");
+                        File.Delete(Program.appdata + @"\server\" + servername + @"\server.jar");
                         Paper.InstallPaperJar(serverdata[1], servername);
                         spinner.Stop();
                         Screen.Print("\r     -Updated Paper jar    ", ConsoleColor.Green);
@@ -180,7 +183,7 @@ namespace MinecraftServerSoftware.Operations
                 case "Spigot":
                     Screen.Print("\n     -Reinstalling Spigot jar...", ConsoleColor.Green);
                     spinner.Start();
-                    File.Delete(@".\server\" + servername + @"\server.jar");
+                    File.Delete(Program.appdata + @"\server\" + servername + @"\server.jar");
                     ServerJars.InstallSpigotJar(serverdata[1], servername);
                     spinner.Stop();
                     Screen.PrintLn("\r     -Reinstalled Spigot jar    ", ConsoleColor.Green);
@@ -188,7 +191,7 @@ namespace MinecraftServerSoftware.Operations
                 case "Bukkit":
                     Screen.Print("\n     -Reinstalling Bukkit jar...", ConsoleColor.Green);
                     spinner.Start();
-                    File.Delete(@".\server\" + servername + @"\server.jar");
+                    File.Delete(Program.appdata + @"\server\" + servername + @"\server.jar");
                     ServerJars.InstallBukkitJar(serverdata[1], servername);
                     spinner.Stop();
                     Screen.PrintLn("\r     -Reinstalled Bukkit jar    ", ConsoleColor.Green);
@@ -196,7 +199,7 @@ namespace MinecraftServerSoftware.Operations
                 case "Vanilla":
                     Screen.Print("\n     -Reinstalling Vanilla jar...", ConsoleColor.Green);
                     spinner.Start();
-                    File.Delete(@".\server\" + servername + @"\server.jar");
+                    File.Delete(Program.appdata + @"\server\" + servername + @"\server.jar");
                     ServerJars.InstallVanillaJar(serverdata[1], servername);
                     spinner.Stop();
                     Screen.PrintLn("\r     -Reinstalled Vanilla jar    ", ConsoleColor.Green);
@@ -207,11 +210,34 @@ namespace MinecraftServerSoftware.Operations
             }
         }
 
+        public static void Plugin(string servername)
+        {
+            string input;
+            Screen.Print("\n::Would you like to install or delete a plugin in '" + servername + "'? (I/D)  >>  ", ConsoleColor.Green);
+            ConsoleKeyInfo keypress = Console.ReadKey();
+            switch (keypress.KeyChar)
+            {
+                case 'i':
+                    Screen.Print("\n::What is the name of the plugin you wish to install?  >>  ", ConsoleColor.Green);
+                    input = Console.ReadLine();
+                    Plugins.Plugin.InstallPlugin(input, servername);
+                    break;
+                case 'd':
+                Screen.Print("\n::What is the name of the plugin you wish to delete?  >>  ", ConsoleColor.Green);
+                    input = Console.ReadLine();
+                    Plugins.Plugin.DeletePlugin(input, servername);
+                    break;
+                default:
+                    Screen.Print("\n::Invalid argument provided, cancelling operation", ConsoleColor.Green);
+                    break;
+            }
+        }
+
         public static void SilentStartServer(string servername)
         {
             Process proc = null;
-            Environment.CurrentDirectory = Program.programdirectory + @"\server\" + servername;
-            var _batDir = string.Format(Program.programdirectory + @"\server\" + servername);
+            Environment.CurrentDirectory = Program.appdata + @"\server\" + servername;
+            var _batDir = string.Format(Program.appdata + @"\server\" + servername);
             proc = new Process();
             proc.StartInfo.WorkingDirectory = _batDir;
             proc.StartInfo.FileName = "start.bat";
@@ -228,8 +254,17 @@ namespace MinecraftServerSoftware.Operations
             p.StartInfo.UseShellExecute = true;
             p.StartInfo.CreateNoWindow = false;
             p.StartInfo.FileName = "start.bat";
-            Environment.CurrentDirectory = Program.programdirectory + @"\server\" + servername;
+            Environment.CurrentDirectory = Program.appdata + @"\server\" + servername;
             p.Start();
+        }
+
+        public static void PrintHelpMenu()
+        {
+            Screen.PrintLn("\n::Help menu:", ConsoleColor.Green);
+            foreach (string item in HelpMenu.helpitems)
+            {
+                Screen.PrintLn("     " + item, ConsoleColor.Green);
+            }
         }
     }
 }

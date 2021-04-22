@@ -18,6 +18,9 @@ namespace MinecraftServerSoftware.Operations
             foreach (var command in commands)
                 switch (command)
                 {
+                    case CommandOrganizer.Operation.Help:
+                        OperationManager.PrintHelpMenu();
+                        break;
                     case CommandOrganizer.Operation.Create:
                         try
                         {
@@ -83,7 +86,17 @@ namespace MinecraftServerSoftware.Operations
                         OperationManager.Uninstall();
                         break;
                     case CommandOrganizer.Operation.Update:
-                        OperationManager.Update(Program.arguments[1]);
+                        OperationManager.Update(Program.arguments[Program.arguments.Length - 1]);
+                        break;
+                    case CommandOrganizer.Operation.Plugin:
+                        if (Servers.ServerExists(Program.arguments[Program.arguments.Length - 1]))
+                        {
+                            OperationManager.Plugin(Program.arguments[Program.arguments.Length - 1]);
+                        }
+                        else
+                        {
+                            Screen.Print("\n::Server does not exist \n", ConsoleColor.Green);
+                        }
                         break;
                 }
         }
