@@ -17,8 +17,7 @@ This software is coded in C# for Windows. As of now it can create, delete, start
 
 ## Requirements:
 - Windows (64-bit prefered) (does not work on Mac or Linux, may add support in future but unlikely)
-- An internet connection
-- Storage space available
+- DOTNET runtime is a MUST
 - Java installed (installer will check for this)
 - Basic knowledge of Minecraft servers and plugins
 
