@@ -1,6 +1,10 @@
 # MinecraftServerManager
 A console application used to create and manage Minecraft servers.
 
+## Install:
+- Scoop: `scoop bucket add games` -> `scoop install mcservman`
+- Run the installer available in releases
+
 ## News:
 - I really want to implement NGROK into this somehow
 - Fixed a bug with the Java installation process. This means that it will install Java, not OpenJDK which is a bit of a bummer but regardless, it's functional
