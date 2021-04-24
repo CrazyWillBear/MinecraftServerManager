@@ -1,22 +1,21 @@
 # MinecraftServerManager
 A console application used to create and manage Minecraft servers.
 
-## News:
-- I really want to implement NGROK into this somehow
-- Fixed a bug with the Java installation process. This means that it will install Java, not OpenJDK which is a bit of a bummer but regardless, it's functional
+## Install:
+- Scoop: `scoop bucket add games` -> `scoop install mcservman`
+- Run the installer available in releases
 
 ## Summary
 This software is coded in C# for Windows. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
 
-## Goals:
-- Integrate NGROK for on the go custom IPs
-
 ## Requirements:
 - Windows (64-bit prefered) (does not work on Mac or Linux, may add support in future but unlikely)
-- An internet connection
-- Storage space available
+- DOTNET runtime is a MUST
 - Java installed (installer will check for this)
 - Basic knowledge of Minecraft servers and plugins
+
+## Goals:
+- Integrate NGROK for on the go custom IPs
 
 ## Credits
 Many credits are due here. For starters:
