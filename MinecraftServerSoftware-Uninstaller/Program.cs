@@ -9,6 +9,13 @@ namespace MinecraftServerSoftware_Uninstaller
         static void Main(string[] args)
         {
             string installDir = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installDir.dat");
+            if (installDir == "Scoop")
+            {
+                Screen.PrintBigLogo();
+                Screen.Print("::This software was installed using Scoop according to our program data. Please use scoop to uninstall", ConsoleColor.Red);
+                Console.ReadKey(true);
+                Environment.Exit(1);
+            }
             ConsoleSpinner spinner = new ConsoleSpinner();
             Screen.PrintBigLogo();
             Screen.Print("\n::Would you like to continue with the uninstallation? (Y/N)  >>  ", ConsoleColor.Yellow);

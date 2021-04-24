@@ -67,12 +67,12 @@ namespace MinecraftServerSoftware.Operations
             ConsoleSpinner spinner;
             if (input.ToLower() == "agree")
             {
-                Screen.Print("     -Generating EULA text file...", ConsoleColor.Green);
-                spinner = new ConsoleSpinner();
-                spinner.Start();
-                SilentStartServer(servername);
-                spinner.Stop();
-                Screen.Print("\r     -Generated EULA text file    ", ConsoleColor.Green);
+                Screen.Print("     -Agreeing to EULA...", ConsoleColor.Green);
+            spinner = new ConsoleSpinner();
+            spinner.Start();
+            File.WriteAllText(Program.appdata + "/server/" + servername + "/eula.txt", "eula=true");
+            spinner.Stop();
+            Screen.Print("\r     -Agreed to EULA     ", ConsoleColor.Green);
             }
             else
             {
@@ -81,14 +81,6 @@ namespace MinecraftServerSoftware.Operations
                 Environment.Exit(0);
             }
 
-            Screen.Print("\n     -Agreeing to EULA...", ConsoleColor.Green);
-            spinner = new ConsoleSpinner();
-            spinner.Start();
-            var eula = File.ReadAllText(Program.appdata + "/server/" + servername + "/eula.txt");
-            eula = eula.Replace("false", "true");
-            File.WriteAllText(Program.appdata + "/server/" + servername + "/eula.txt", eula);
-            spinner.Stop();
-            Screen.Print("\r     -Agreed to EULA     ", ConsoleColor.Green);
             
             // creating plugins folder
             Directory.CreateDirectory(Program.appdata + "/server/" + servername + "/plugins");
