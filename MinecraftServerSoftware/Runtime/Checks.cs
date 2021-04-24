@@ -14,6 +14,31 @@ namespace MinecraftServerSoftware.Runtime
             {
                 Directory.CreateDirectory(Program.appdata);
             }
+<<<<<<< Updated upstream
+=======
+            if (!Directory.Exists(Program.appdata + @"\dat"))
+            {
+                Directory.CreateDirectory(Program.appdata + @"\dat");
+            }
+            if (!File.Exists(Program.appdata + @"\dat\installDir.dat"))
+            {
+                string input;
+                ConsoleKeyInfo keyPressed;
+                Screen.Print("\n::Program data not found, did you install using Scoop? (Y/N)  >>  ", ConsoleColor.Green);
+                keyPressed = Console.ReadKey();
+                if (keyPressed.KeyChar == 'y')
+                {
+                    File.WriteAllText(Program.appdata + @"\dat\installDir.dat", "Scoop");
+                }
+                else
+                {
+                    Screen.Print("\n     -What directory did you install MCServMan into (include FULL path)?  >>  ", ConsoleColor.Green);
+                    input = Console.ReadLine();
+                    File.WriteAllText(Program.appdata + @"\dat\installDir.dat", input);
+                }
+                Screen.PrintLn("\n     -Successfully updated program data", ConsoleColor.Green);
+            }
+>>>>>>> Stashed changes
         }
         public static async Task CheckForUninstaller()
         {

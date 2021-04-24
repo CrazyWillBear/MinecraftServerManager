@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Security;
 using MinecraftServerSoftware.Utils;
+using Octokit;
 
 namespace MinecraftServerSoftware.Plugins
 {
@@ -8,11 +11,28 @@ namespace MinecraftServerSoftware.Plugins
     {
         private static readonly Screen Screen = new();
 
+        public static bool CheckServerCompatability(string servername)
+        {
+            string[] text = System.IO.File.ReadAllLines(Program.appdata + @"\server\" + servername + @"\serverversion.ver");
+            if (text[0] == "Paper" || text[0] == "Spigot" || text[0] == "Bukkit")
+            {
+                if (Directory.Exists(Program.appdata + @"\server\" + servername + @"\world")) { }
+                else
+                {
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static void InstallPlugin(string pluginname, string servername)
         {
             try
             {
-                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugin", true);
+                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugins", true);
                 System.IO.File.Delete(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname);
                 Screen.PrintLn("::Successfully installed `" + pluginname + "` in `" + servername + "`", ConsoleColor.Green);
             }
@@ -26,7 +46,7 @@ namespace MinecraftServerSoftware.Plugins
         {
             try
             {
-                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugin", true);
+                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugins", true);
                 Screen.PrintLn("::Successfully deleted `" + pluginname + "` in `" + servername + "`", ConsoleColor.Green);
             }
             catch

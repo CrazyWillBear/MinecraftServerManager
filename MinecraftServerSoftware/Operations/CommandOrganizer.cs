@@ -22,6 +22,7 @@ namespace MinecraftServerSoftware.Operations
         public static bool useVanillaOnly;
         public static bool useSpigotOnly;
         public static bool useBukkitOnly;
+        public static bool openPluginConfig;
 
         public static List<Operation> ParseCommand(string[] args)
         {
@@ -57,6 +58,9 @@ namespace MinecraftServerSoftware.Operations
                             break;
                         case "--spigot":
                             useSpigotOnly = true;
+                            break;
+                        case "--config":
+                            openPluginConfig = true;
                             break;
                         case "--list":
                             operationList.Add(Operation.ListServers);
@@ -110,6 +114,9 @@ namespace MinecraftServerSoftware.Operations
                                     break;
                                 case 'g':
                                     useSpigotOnly = true;
+                                    break;
+                                case 'C':
+                                    openPluginConfig = true;
                                     break;
                                 case 'u':
                                     operationList.Add(Operation.Update);

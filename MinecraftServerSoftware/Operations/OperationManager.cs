@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using MinecraftServerSoftware.Plugins;
 using MinecraftServerSoftware.Servers;
 using MinecraftServerSoftware.Utils;
 
@@ -212,6 +213,15 @@ namespace MinecraftServerSoftware.Operations
 
         public static void Plugin(string servername)
         {
+            if (!Plugins.Plugin.CheckServerCompatability(servername))
+            {
+                Screen.Print("\n::Either this server does not use plugins or it has not been started yet\n", ConsoleColor.Green);
+                Environment.Exit(0);
+            }
+            if (CommandOrganizer.openPluginConfig)
+            {
+                Configure.configurePlugin(servername);
+            }
             string input;
             Screen.Print("\n::Would you like to install or delete a plugin in '" + servername + "'? (I/D)  >>  ", ConsoleColor.Green);
             ConsoleKeyInfo keypress = Console.ReadKey();
