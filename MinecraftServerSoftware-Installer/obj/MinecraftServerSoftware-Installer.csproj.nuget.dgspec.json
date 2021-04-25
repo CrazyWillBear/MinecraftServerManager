@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj": {}
+    "c:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj": {
+    "c:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
+        "projectUniqueName": "c:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
         "projectName": "MinecraftServerSoftware-Installer",
-        "projectPath": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
+        "projectPath": "c:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
         "packagesPath": "C:\\Users\\wc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\obj\\",
+        "outputPath": "c:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wc\\AppData\\Roaming\\NuGet\\NuGet.Config"

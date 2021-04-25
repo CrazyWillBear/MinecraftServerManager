@@ -39,6 +39,7 @@ namespace MinecraftServerSoftware.Plugins
 
             string[] pluginfiles = Directory.GetFiles(dirchoices[int.Parse(input) - 1]);
 
+            Screen.Print("\n::Plugin files:\n", ConsoleColor.Green);
             if (pluginfiles.Length == 0)
             {
                 Screen.PrintLn("::This plugin does dot have configuration options", ConsoleColor.Green);

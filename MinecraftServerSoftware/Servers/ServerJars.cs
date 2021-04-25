@@ -44,7 +44,7 @@ namespace MinecraftServerSoftware.Servers
                 File.WriteAllText(Program.appdata + "/server/" + servername + "/serverversion.ver", "Vanilla\n" + chosenversion);
                 wc.Dispose();
                 ConsoleSpinner.Stop();
-                Screen.PrintLn("\r     -Created Vanilla server jar    ", ConsoleColor.Green);
+                Screen.PrintLn("\r     -Created Vanilla server jar     ", ConsoleColor.Green);
                 return true;
             }
             catch

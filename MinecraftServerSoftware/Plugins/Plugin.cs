@@ -42,16 +42,31 @@ namespace MinecraftServerSoftware.Plugins
             }
         }
 
-        public static void DeletePlugin(string pluginname, string servername)
+        public static void DeletePlugin(string servername)
         {
             try
             {
-                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugins", true);
-                Screen.PrintLn("::Successfully deleted `" + pluginname + "` in `" + servername + "`", ConsoleColor.Green);
+                int index = 1;
+                string[] pluginfiles = Directory.GetFiles(Program.appdata + "/server/" + servername + @"\plugins");
+                List<string> delchoices = new List<string>();
+                foreach (string files in pluginfiles)
+                {
+                    if (files.Split('\\')[files.Split('\\').Length - 1] == "PluginMetrics")
+                    {
+                        continue;
+                    }
+                    Screen.PrintLn("     - " + index + ") " + files.Split('\\')[files.Split('\\').Length - 1], ConsoleColor.Green);
+                    delchoices.Add(files);
+                    index++;
+                }
+                Screen.Print("\n::Which plugin would you like to delete? (Enter corresponding number)  >>  ", ConsoleColor.Green);
+                string input = Console.ReadLine();
+                System.IO.File.Delete(delchoices[int.Parse(input)]);
+                Screen.PrintLn("::Successfully deleted `" + delchoices[int.Parse(input)].Split('\\')[delchoices[int.Parse(input)].Split('\\').Length - 1] + "` in `" + servername + "`", ConsoleColor.Green);
             }
-            catch
+            catch (Exception ex)
             {
-                Screen.PrintLn("::Could not find plugin `" + pluginname + "` in `" + servername + "`. Make sure to include the file extension", ConsoleColor.Red);
+                Screen.PrintLn(ex.ToString(), ConsoleColor.Red);
             }
         }
 

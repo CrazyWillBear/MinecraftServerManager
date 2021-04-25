@@ -2,20 +2,20 @@ using System;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using MinecraftServerSoftware.Utils;
 using Octokit;
 
 namespace MinecraftServerSoftware.Runtime
 {
     public class Checks
     {
+        private static readonly Screen Screen = new();
         public static void CheckForAppData()
         {
             if (!Directory.Exists(Program.appdata))
             {
                 Directory.CreateDirectory(Program.appdata);
             }
-<<<<<<< Updated upstream
-=======
             if (!Directory.Exists(Program.appdata + @"\dat"))
             {
                 Directory.CreateDirectory(Program.appdata + @"\dat");
@@ -38,7 +38,6 @@ namespace MinecraftServerSoftware.Runtime
                 }
                 Screen.PrintLn("\n     -Successfully updated program data", ConsoleColor.Green);
             }
->>>>>>> Stashed changes
         }
         public static async Task CheckForUninstaller()
         {
