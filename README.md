@@ -1,6 +1,9 @@
 # MinecraftServerManager
 A console application used to create and manage Minecraft servers.
 
+## IMPORTANT NEWS:
+It has come to my attention that the installation is not functional on some systems for some reason to do with dotnet core. I've decided that the next release will be self-contained.
+
 ## Install:
 - Scoop: `scoop bucket add games` -> `scoop install mcservman`
 - Run the installer available in releases
