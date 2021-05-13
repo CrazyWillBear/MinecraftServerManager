@@ -21,15 +21,37 @@ namespace MinecraftServerSoftware_Installer.Utils
             var releases = await client.Repository.Release.GetAll("CrazyWillBear", "MinecraftServerManager");
             var latest = releases[0];
             WebClient wc = new WebClient();
-            wc.DownloadFile("https://github.com/CrazyWillBear/MinecraftServerManager/releases/download/" + latest.TagName + "/" + latest.TagName + ".zip", destination + @"\MCServerSoftware.zip");
+            try
+            {
+                wc.DownloadFile("https://github.com/CrazyWillBear/MinecraftServerManager/releases/download/" + latest.TagName + "/" + latest.TagName + ".zip", destination + @"\MCServerSoftware.zip");
+            }
+            catch (Exception ex)
+            {
+                Screen.Print(ex.ToString());
+                Console.ReadLine();
+            }
             System.IO.Compression.ZipFile.ExtractToDirectory(destination + @"\MCServerSoftware.zip", destination);
             File.Delete(destination + @"\MCServerSoftware.zip");
         }
-        public static void CreateBaseData(string installDir)
+        public static async Task CreateBaseData(string installDir)
         {
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware");
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat");
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installDir.dat", installDir);
+        }
+        public static void ClearInstallDir(string installDir)
+        {
+            Directory.Delete(installDir, true);
+            Directory.CreateDirectory(installDir);
+        }
+        public static void ClearDirectory(string dir)
+        {
+            Screen.Print("clearing directory");
+            Directory.Delete(dir, true);
+            foreach (string directory in Directory.GetDirectories(dir))
+            {
+                ClearDirectory(directory);
+            }
         }
         public static void CreateEnvVariable(string destination)
         {

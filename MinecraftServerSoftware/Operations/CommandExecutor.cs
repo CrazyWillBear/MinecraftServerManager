@@ -72,6 +72,7 @@ namespace MinecraftServerSoftware.Operations
 
                         break;
                     case CommandOrganizer.Operation.CheckVersion:
+                        OperationManager.CheckServerVersion(CommandOrganizer.arguments[0]);
                         break;
                     case CommandOrganizer.Operation.WipeWorld:
                         break;

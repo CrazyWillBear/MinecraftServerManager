@@ -1,15 +1,17 @@
 # MinecraftServerManager
 A console application used to create and manage Minecraft servers.
 
+## Scoop:
+MCServMan available on Scoop! `scoop bucket add games` -> `scoop install mcservman`
+(Make sure that you do not install MCServMan twice! Running the installer and installing through Scoop are separate)
+
 ## News:
-- I think I need to add an uninstall command into the software itself, although that feels super weird... I'll think about other ways to implement the uninstaller
-- Java automatically asks for permission to open ports, no reason to do it manually
-- The software will be installed for the whole computer, not just one user
+- The software will be installed for the whole computer, not just one user (although servers are exclusive per user)
 - I really want to implement NGROK into this somehow
-- I wrapped the installer into a .msi, which when you run it looks kind of weird but functions perfectly and is better than having a ton of dependencies when you run the installer
+- I may want to create a PowerShell install script instead of a C# application. I think using exclusively Scoop for installation is a good idea, and I can maybe create some installer that checks to see if Scoop is installed, then installs Scoop if necessary before installing MCServMan
 
 ## Summary
-This software is coded in C# for Windows. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
+This software is coded in C# for Windows. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in alpha, meaning that there will be bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
 
 ## Goals:
 - Integrate NGROK for on the go custom IPs
@@ -17,10 +19,7 @@ This software is coded in C# for Windows. As of now it can create, delete, start
 
 ## Requirements:
 - Windows (does not work on Mac or Linux, may add support in future but unlikely)
-- An internet connection
-- Storage space available
-- Java installed (installer will check for this)
-- Command prompt
+- Basic knowledge of Minecraft servers and commandline
 
 ## Credits
 Many credits are due here. For starters:

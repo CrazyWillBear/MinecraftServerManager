@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <RuntimeIdentifiers>win10-x64;osx.10.11-x64</RuntimeIdentifiers>
 	<ApplicationManifest>app.manifest</ApplicationManifest>
     <RootNamespace>MinecraftServerSoftware_Uninstaller</RootNamespace>
   </PropertyGroup>

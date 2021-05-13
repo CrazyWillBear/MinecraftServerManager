@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "TTSARb6fIBo2lz1d5SMOoPZ8jysXoRRKTwOsZldW4N8BN3NjR3gAnocgeEXsC8/xnubTnAEPUTWRmMPUdM2a4g==",
+  "dgSpecHash": "3ID3kFIRThGQ7+msPaQYZz/omDWpjgoHvlkfrr80juUCprsv+AjQusNJnFuxci3Q0ePdaPR+oMUPwTrzjR/TnQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
+  "projectFilePath": "C:\\Users\\crazy\\Desktop\\MinecraftServerManager\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\wc\\.nuget\\packages\\octokit\\0.50.0\\octokit.0.50.0.nupkg.sha512"
+    "C:\\Users\\crazy\\.nuget\\packages\\octokit\\0.50.0\\octokit.0.50.0.nupkg.sha512",
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.6\\microsoft.netcore.app.runtime.win-x64.5.0.6.nupkg.sha512",
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.netcore.app.runtime.osx-x64\\5.0.6\\microsoft.netcore.app.runtime.osx-x64.5.0.6.nupkg.sha512",
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.6\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.6.nupkg.sha512",
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.6\\microsoft.aspnetcore.app.runtime.win-x64.5.0.6.nupkg.sha512",
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.osx-x64\\5.0.6\\microsoft.aspnetcore.app.runtime.osx-x64.5.0.6.nupkg.sha512",
+    "C:\\Users\\crazy\\.nuget\\packages\\microsoft.netcore.app.host.osx-x64\\5.0.6\\microsoft.netcore.app.host.osx-x64.5.0.6.nupkg.sha512"
   ],
   "logs": []
 }

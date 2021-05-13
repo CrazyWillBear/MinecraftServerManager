@@ -204,6 +204,12 @@ namespace MinecraftServerSoftware.Operations
             }
         }
 
+        public static void CheckServerVersion(string servername)
+        {
+            string[] versioninfo = File.ReadAllLines(Program.appdata + @"\server\" + servername + @"\serverversion.ver");
+            Screen.PrintLn("\n::'" + servername + "' is on version " + versioninfo[1] + ", and is running a " + versioninfo[0] + " server jar", ConsoleColor.Green);
+        }
+
         public static void Plugin(string servername)
         {
             if (!Plugins.Plugin.CheckServerCompatability(servername))

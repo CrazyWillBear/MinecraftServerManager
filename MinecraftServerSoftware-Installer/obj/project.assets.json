@@ -11,6 +11,28 @@
           "lib/netstandard2.0/Octokit.dll": {}
         }
       }
+    },
+    "net5.0/osx.10.11-x64": {
+      "Octokit/0.50.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Octokit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Octokit.dll": {}
+        }
+      }
+    },
+    "net5.0/win10-x64": {
+      "Octokit/0.50.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Octokit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Octokit.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -37,19 +59,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wc\\.nuget\\packages\\": {}
+    "C:\\Users\\crazy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
+      "projectUniqueName": "C:\\Users\\crazy\\Desktop\\MinecraftServerManager\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
       "projectName": "MinecraftServerSoftware-Installer",
-      "projectPath": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
-      "packagesPath": "C:\\Users\\wc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wc\\Desktop\\MinecraftServerSoftware\\MinecraftServerSoftware-Installer\\obj\\",
+      "projectPath": "C:\\Users\\crazy\\Desktop\\MinecraftServerManager\\MinecraftServerSoftware-Installer\\MinecraftServerSoftware-Installer.csproj",
+      "packagesPath": "C:\\Users\\crazy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\crazy\\Desktop\\MinecraftServerManager\\MinecraftServerSoftware-Installer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\wc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\crazy\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -88,12 +110,46 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
+            "version": "[5.0.6, 5.0.6]"
+          },
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+            "version": "[5.0.6, 5.0.6]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-x64",
+            "version": "[5.0.6, 5.0.6]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.osx-x64",
+            "version": "[5.0.6, 5.0.6]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x64",
+            "version": "[5.0.6, 5.0.6]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+            "version": "[5.0.6, 5.0.6]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "osx.10.11-x64": {
+        "#import": []
+      },
+      "win10-x64": {
+        "#import": []
       }
     }
   }

@@ -71,8 +71,15 @@ namespace MinecraftServerSoftware_Installer
 
             spinner = new ConsoleSpinner();
             spinner.Start();
-            Directory.CreateDirectory(installDir);
-            Installation.CreateBaseData(installDir);
+            if (Directory.Exists(installDir))
+            {
+                Installation.ClearInstallDir(installDir);
+            }
+            else
+            {
+                Directory.CreateDirectory(installDir);
+            }
+            await Installation.CreateBaseData(installDir);
 
             await Installation.DownloadLatestRelease(installDir);
             Installation.CreateEnvVariable(installDir);
