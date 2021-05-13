@@ -28,7 +28,7 @@ namespace MinecraftServerSoftware.Runtime
                 keyPressed = Console.ReadKey();
                 if (keyPressed.KeyChar == 'y')
                 {
-                    File.WriteAllText(Program.appdata + @"\dat\installDir.dat", @"C:\Users\" + Environment.UserName + @"\scoop\apps\mcservman");
+                    File.WriteAllText(Program.appdata + @"\dat\installDir.dat", "Scoop");
                 }
                 else
                 {

@@ -12,6 +12,7 @@ namespace MinecraftServerSoftware.Operations
         private static readonly Screen Screen = new();
         private static readonly Servers.Servers Servers = new();
         private static Paper Paper = new();
+        private static CommandOrganizer CommandOrganizer = new();
 
         public static void ExecuteCommands(List<CommandOrganizer.Operation> commands)
         {
@@ -24,13 +25,13 @@ namespace MinecraftServerSoftware.Operations
                     case CommandOrganizer.Operation.Create:
                         try
                         {
-                            if (Servers.ServerExists(Program.arguments[1]))
+                            if (Servers.ServerExists(CommandOrganizer.arguments[0]))
                             {
                                 Screen.PrintLn("\nThis server already exists", ConsoleColor.Green);
                                 Environment.Exit(0);
                             }
 
-                            OperationManager.CreateServer(Program.arguments[Program.arguments.Length - 1]);
+                            OperationManager.CreateServer(CommandOrganizer.arguments[CommandOrganizer.arguments.ToArray().Length - 1]);
                         }
                         catch (Exception ex)
                         {
@@ -41,7 +42,7 @@ namespace MinecraftServerSoftware.Operations
                     case CommandOrganizer.Operation.Delete:
                         try
                         {
-                            OperationManager.DeleteServer(Program.arguments[1]);
+                            OperationManager.DeleteServer(CommandOrganizer.arguments[0]);
                         }
                         catch (Exception ex)
                         {
@@ -50,13 +51,13 @@ namespace MinecraftServerSoftware.Operations
 
                         break;
                     case CommandOrganizer.Operation.Start:
-                        if (Servers.ServerExists(Program.arguments[1]) && Servers.ServerRunning() == false)
+                        if (Servers.ServerExists(CommandOrganizer.arguments[0]) && Servers.ServerRunning() == false)
                         {
                             Screen.PrintLn(
                                 "\n::The server will start in 5 seconds, type 'stop' into the console to shut the server down",
                                 ConsoleColor.Green);
                             Thread.Sleep(5000);
-                            OperationManager.StartServer(Program.arguments[1]);
+                            OperationManager.StartServer(CommandOrganizer.arguments[0]);
                         }
                         else if (Servers.ServerRunning())
                         {
@@ -71,6 +72,7 @@ namespace MinecraftServerSoftware.Operations
 
                         break;
                     case CommandOrganizer.Operation.CheckVersion:
+                        OperationManager.CheckServerVersion(CommandOrganizer.arguments[0]);
                         break;
                     case CommandOrganizer.Operation.WipeWorld:
                         break;
@@ -86,12 +88,12 @@ namespace MinecraftServerSoftware.Operations
                         OperationManager.Uninstall();
                         break;
                     case CommandOrganizer.Operation.Update:
-                        OperationManager.Update(Program.arguments[Program.arguments.Length - 1]);
+                        OperationManager.Update(CommandOrganizer.arguments[CommandOrganizer.arguments.ToArray().Length - 1]);
                         break;
                     case CommandOrganizer.Operation.Plugin:
-                        if (Servers.ServerExists(Program.arguments[Program.arguments.Length - 1]))
+                        if (Servers.ServerExists(CommandOrganizer.arguments[CommandOrganizer.arguments.ToArray().Length - 1]))
                         {
-                            OperationManager.Plugin(Program.arguments[Program.arguments.Length - 1]);
+                            OperationManager.Plugin(CommandOrganizer.arguments[CommandOrganizer.arguments.ToArray().Length - 1]);
                         }
                         else
                         {

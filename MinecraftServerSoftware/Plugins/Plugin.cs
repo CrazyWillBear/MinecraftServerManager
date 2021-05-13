@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Security;
 using MinecraftServerSoftware.Utils;
+using Octokit;
 
 namespace MinecraftServerSoftware.Plugins
 {
@@ -8,11 +11,28 @@ namespace MinecraftServerSoftware.Plugins
     {
         private static readonly Screen Screen = new();
 
+        public static bool CheckServerCompatability(string servername)
+        {
+            string[] text = System.IO.File.ReadAllLines(Program.appdata + @"\server\" + servername + @"\serverversion.ver");
+            if (text[0] == "Paper" || text[0] == "Spigot" || text[0] == "Bukkit")
+            {
+                if (Directory.Exists(Program.appdata + @"\server\" + servername + @"\world")) { }
+                else
+                {
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static void InstallPlugin(string pluginname, string servername)
         {
             try
             {
-                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugin", true);
+                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugins", true);
                 System.IO.File.Delete(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname);
                 Screen.PrintLn("::Successfully installed `" + pluginname + "` in `" + servername + "`", ConsoleColor.Green);
             }
@@ -22,16 +42,31 @@ namespace MinecraftServerSoftware.Plugins
             }
         }
 
-        public static void DeletePlugin(string pluginname, string servername)
+        public static void DeletePlugin(string servername)
         {
             try
             {
-                System.IO.File.Copy(@"C:\Users\" + Environment.UserName + @"\Downloads\" + pluginname, Program.appdata + "/server/" + servername + @"\plugin", true);
-                Screen.PrintLn("::Successfully deleted `" + pluginname + "` in `" + servername + "`", ConsoleColor.Green);
+                int index = 1;
+                string[] pluginfiles = Directory.GetFiles(Program.appdata + "/server/" + servername + @"\plugins");
+                List<string> delchoices = new List<string>();
+                foreach (string files in pluginfiles)
+                {
+                    if (files.Split('\\')[files.Split('\\').Length - 1] == "PluginMetrics")
+                    {
+                        continue;
+                    }
+                    Screen.PrintLn("     - " + index + ") " + files.Split('\\')[files.Split('\\').Length - 1], ConsoleColor.Green);
+                    delchoices.Add(files);
+                    index++;
+                }
+                Screen.Print("\n::Which plugin would you like to delete? (Enter corresponding number)  >>  ", ConsoleColor.Green);
+                string input = Console.ReadLine();
+                System.IO.File.Delete(delchoices[int.Parse(input)]);
+                Screen.PrintLn("::Successfully deleted `" + delchoices[int.Parse(input)].Split('\\')[delchoices[int.Parse(input)].Split('\\').Length - 1] + "` in `" + servername + "`", ConsoleColor.Green);
             }
-            catch
+            catch (Exception ex)
             {
-                Screen.PrintLn("::Could not find plugin `" + pluginname + "` in `" + servername + "`. Make sure to include the file extension", ConsoleColor.Red);
+                Screen.PrintLn(ex.ToString(), ConsoleColor.Red);
             }
         }
 

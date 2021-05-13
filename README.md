@@ -1,24 +1,26 @@
 # MinecraftServerManager
 A console application used to create and manage Minecraft servers.
 
-## IMPORTANT NEWS:
-It has come to my attention that the installation is not functional on some systems for some reason to do with dotnet core. I've decided that the next release will be self-contained.
-
-## Install:
-- Scoop: `scoop bucket add games` -> `scoop install mcservman`
-- Run the installer available in releases
+## News:
+- I think I need to add an uninstall command into the software itself, although that feels super weird... I'll think about other ways to implement the uninstaller
+- Java automatically asks for permission to open ports, no reason to do it manually
+- The software will be installed for the whole computer, not just one user
+- I really want to implement NGROK into this somehow
+- I wrapped the installer into a .msi, which when you run it looks kind of weird but functions perfectly and is better than having a ton of dependencies when you run the installer
 
 ## Summary
 This software is coded in C# for Windows. As of now it can create, delete, start, and list servers that you create. It uses several services (all in credits) to do this, and installs server jars from Paper, Spigot, Bukkit, and Vanilla (Mojang). The software is still in prealpha, meaning that there will be many bugs and missing features. Much work will be done and much progress made. Suggestions and edits to the code are always welcome.
 
-## Requirements:
-- Windows (64-bit prefered) (does not work on Mac or Linux, may add support in future but unlikely)
-- DOTNET runtime is a MUST
-- Java installed (installer will check for this)
-- Basic knowledge of Minecraft servers and plugins
-
 ## Goals:
 - Integrate NGROK for on the go custom IPs
+- Create a directory structure that both looks cool and operates easily
+
+## Requirements:
+- Windows (does not work on Mac or Linux, may add support in future but unlikely)
+- An internet connection
+- Storage space available
+- Java installed (installer will check for this)
+- Command prompt
 
 ## Credits
 Many credits are due here. For starters:

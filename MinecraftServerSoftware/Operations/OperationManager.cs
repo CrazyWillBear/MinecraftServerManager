@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Collections.Generic;
+using MinecraftServerSoftware.Plugins;
 using MinecraftServerSoftware.Servers;
 using MinecraftServerSoftware.Utils;
 
@@ -86,18 +88,18 @@ namespace MinecraftServerSoftware.Operations
             Directory.CreateDirectory(Program.appdata + "/server/" + servername + "/plugins");
 
             // starting or saving server
-            Screen.PrintLn("\nWould you like to start the server? (Y/N) >> ", ConsoleColor.Green);
+            Screen.PrintLn("\n::Would you like to start the server? (Y/N) >> ", ConsoleColor.Green);
             var key = Console.ReadKey(true);
             if (key.KeyChar == 'y')
             {
-                Screen.PrintLn("Your server will start in 5 seconds. To stop the server, type `stop` into the console",
+                Screen.PrintLn("     -Your server will start in 5 seconds. To stop the server, type `stop` into the console",
                     ConsoleColor.Green);
                 Thread.Sleep(5000);
                 StartServer(servername);
             }
             else
             {
-                Screen.PrintLn("Use the start command to start your server at any time", ConsoleColor.Green);
+                Screen.PrintLn("::Use the start command to start your server at any time", ConsoleColor.Green);
             }
         }
 
@@ -202,8 +204,23 @@ namespace MinecraftServerSoftware.Operations
             }
         }
 
+        public static void CheckServerVersion(string servername)
+        {
+            string[] versioninfo = File.ReadAllLines(Program.appdata + @"\server\" + servername + @"\serverversion.ver");
+            Screen.PrintLn("\n::'" + servername + "' is on version " + versioninfo[1] + ", and is running a " + versioninfo[0] + " server jar", ConsoleColor.Green);
+        }
+
         public static void Plugin(string servername)
         {
+            if (!Plugins.Plugin.CheckServerCompatability(servername))
+            {
+                Screen.Print("\n::Either this server does not use plugins or it has not been started yet\n", ConsoleColor.Green);
+                Environment.Exit(0);
+            }
+            if (CommandOrganizer.openPluginConfig)
+            {
+                Configure.configurePlugin(servername);
+            }
             string input;
             Screen.Print("\n::Would you like to install or delete a plugin in '" + servername + "'? (I/D)  >>  ", ConsoleColor.Green);
             ConsoleKeyInfo keypress = Console.ReadKey();
@@ -215,9 +232,12 @@ namespace MinecraftServerSoftware.Operations
                     Plugins.Plugin.InstallPlugin(input, servername);
                     break;
                 case 'd':
-                Screen.Print("\n::What is the name of the plugin you wish to delete?  >>  ", ConsoleColor.Green);
-                    input = Console.ReadLine();
-                    Plugins.Plugin.DeletePlugin(input, servername);
+                    if (Directory.GetFiles(Program.appdata + @"\server\" + servername + @"\plugins\").Length == 0)
+                    {
+                        Screen.Print("\n     -No plugins to delete in '" + servername + "'\n", ConsoleColor.Green);
+                        Environment.Exit(0);
+                    }
+                    Plugins.Plugin.DeletePlugin(servername);
                     break;
                 default:
                     Screen.Print("\n::Invalid argument provided, cancelling operation", ConsoleColor.Green);
