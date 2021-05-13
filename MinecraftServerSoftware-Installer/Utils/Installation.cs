@@ -31,6 +31,11 @@ namespace MinecraftServerSoftware_Installer.Utils
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat");
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installDir.dat", installDir);
         }
+        public static void ClearInstallDir(string installDir)
+        {
+            Directory.Delete(installDir, true);
+            Directory.CreateDirectory(installDir);
+        }
         public static void CreateEnvVariable(string destination)
         {
             List<string> newValue = new List<string>();
