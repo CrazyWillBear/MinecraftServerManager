@@ -6,7 +6,7 @@ MCServMan available on Scoop! `scoop bucket add games` -> `scoop install mcservm
 (Make sure that you do not install MCServMan twice! Running the installer and installing through Scoop are separate)
 
 ## News:
-- The software will be installed for the whole computer, not just one user (although servers are exclusive per user)
+- I plan to add a feature to update the software automatically, I would add this to the runtime directory and implement it accordingly. This could be a good idea, but Scoop can make this stuff confusing so I'll have to research
 - I really want to implement NGROK into this somehow
 - I may want to create a PowerShell install script instead of a C# application. I think using exclusively Scoop for installation is a good idea, and I can maybe create some installer that checks to see if Scoop is installed, then installs Scoop if necessary before installing MCServMan
 
