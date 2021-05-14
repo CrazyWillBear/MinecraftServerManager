@@ -33,11 +33,11 @@ namespace MinecraftServerSoftware_Installer.Utils
             System.IO.Compression.ZipFile.ExtractToDirectory(destination + @"\MCServerSoftware.zip", destination);
             File.Delete(destination + @"\MCServerSoftware.zip");
         }
-        public static async Task CreateBaseData(string installDir)
+        public static void CreateBaseData()
         {
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware");
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat");
-            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installDir.dat", installDir);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installMethod.dat", "INSTALLER");
         }
         public static void ClearInstallDir(string installDir)
         {

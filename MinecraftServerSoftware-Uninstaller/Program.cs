@@ -8,11 +8,18 @@ namespace MinecraftServerSoftware_Uninstaller
     {
         static void Main(string[] args)
         {
-            string installDir = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installDir.dat");
-            if (installDir == "Scoop")
+            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installMethod.dat"))
             {
                 Screen.PrintBigLogo();
-                Screen.Print("::This software was installed using Scoop according to our program data. Please use scoop to uninstall", ConsoleColor.Red);
+                Screen.PrintLn("::This software was installed either manually or using Scoop according to our appdata. Please uninstall manually or using Scoop (`scoop uninstall mcservman`) depending on how you installed this application", ConsoleColor.Yellow);
+                Console.ReadKey(true);
+                Environment.Exit(1);
+            }
+            string installMethod = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\AppData\Roaming\MCServerSoftware\dat\installMethod.dat");
+            if (installMethod != "INSTALLER")
+            {
+                Screen.PrintBigLogo();
+                Screen.PrintLn("::This program's appdata appears to be corrupted or incorrect... Please manually uninstall", ConsoleColor.Yellow);
                 Console.ReadKey(true);
                 Environment.Exit(1);
             }
@@ -20,6 +27,7 @@ namespace MinecraftServerSoftware_Uninstaller
             Screen.PrintBigLogo();
             Screen.Print("\n::Would you like to continue with the uninstallation? (Y/N)  >>  ", ConsoleColor.Yellow);
             ConsoleKeyInfo key = Console.ReadKey();
+            string installDir = @"C:\Program Files\MCServerSoftware";
 
             switch (key.KeyChar)
             {

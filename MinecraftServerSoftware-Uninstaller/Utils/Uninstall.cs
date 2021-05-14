@@ -9,12 +9,7 @@ namespace MinecraftServerSoftware_Uninstaller.Utils
         public static void UninstallPreserveData(string destination)
         {
             RemoveEnvVar(destination);
-            string[] files = Directory.GetFiles(destination);
-            foreach (string file in files)
-            {
-                File.Delete(file);
-            }
-            Directory.Delete(destination);
+            Directory.Delete(destination, true);
         }
 
         public static void RemoveEnvVar(string destination)

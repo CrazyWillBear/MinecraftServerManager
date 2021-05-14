@@ -248,6 +248,7 @@ namespace MinecraftServerSoftware.Operations
         public static void SilentStartServer(string servername)
         {
             Process proc = null;
+            string formerDir = Environment.CurrentDirectory;
             Environment.CurrentDirectory = Program.appdata + @"\server\" + servername;
             var _batDir = string.Format(Program.appdata + @"\server\" + servername);
             proc = new Process();
@@ -257,7 +258,7 @@ namespace MinecraftServerSoftware.Operations
             proc.Start();
             proc.WaitForExit();
             proc.Close();
-            Environment.CurrentDirectory = Program.programdirectory;
+            Environment.CurrentDirectory = formerDir;
         }
 
         public static void StartServer(string servername)

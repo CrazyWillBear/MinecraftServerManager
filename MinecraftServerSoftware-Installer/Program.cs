@@ -46,28 +46,8 @@ namespace MinecraftServerSoftware_Installer
                 Screen.Print("\r     -Java has been installed                                                                                ", ConsoleColor.Yellow);
             }
 
-            Screen.Print(
-                "\n::Would you like to change the install directory, default is " +
-                @"`C:\Program Files`? (type directory or leave blank)  >>  ",
-                ConsoleColor.Yellow);
-            string input = Console.ReadLine();
-
-            Screen.PrintLn("::Installing", ConsoleColor.Yellow);
-            if (Directory.Exists(input))
-            {
-                installDir = input + @"\MCServerSoftware";
-                Screen.Print("     -Installing into custom directory...", ConsoleColor.Yellow);
-            }
-            else if (input == "")
-            {
-                Screen.Print("     -Installing into default directory...", ConsoleColor.Yellow);
-                installDir = installDir + @"\MCServerSoftware";
-            }
-            else
-            {
-                Screen.Print("     -That directory does not exist, installing into default directory...", ConsoleColor.Yellow);
-                installDir = installDir + @"\MCServerSoftware";
-            }
+            Screen.Print("\n::Installing into Program Files...", ConsoleColor.Yellow);
+            installDir = installDir + @"\MCServerSoftware";
 
             spinner = new ConsoleSpinner();
             spinner.Start();
@@ -79,7 +59,7 @@ namespace MinecraftServerSoftware_Installer
             {
                 Directory.CreateDirectory(installDir);
             }
-            await Installation.CreateBaseData(installDir);
+            Installation.CreateBaseData();
 
             await Installation.DownloadLatestRelease(installDir);
             Installation.CreateEnvVariable(installDir);

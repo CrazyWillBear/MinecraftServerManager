@@ -20,24 +20,6 @@ namespace MinecraftServerSoftware.Runtime
             {
                 Directory.CreateDirectory(Program.appdata + @"\dat");
             }
-            if (!File.Exists(Program.appdata + @"\dat\installDir.dat"))
-            {
-                string input;
-                ConsoleKeyInfo keyPressed;
-                Screen.Print("\n::Program data not found, did you install using Scoop? (Y/N)  >>  ", ConsoleColor.Green);
-                keyPressed = Console.ReadKey();
-                if (keyPressed.KeyChar == 'y')
-                {
-                    File.WriteAllText(Program.appdata + @"\dat\installDir.dat", "Scoop");
-                }
-                else
-                {
-                    Screen.Print("\n     -What directory did you install MCServMan into (include FULL path)?  >>  ", ConsoleColor.Green);
-                    input = Console.ReadLine();
-                    File.WriteAllText(Program.appdata + @"\dat\installDir.dat", input);
-                }
-                Screen.PrintLn("\n     -Successfully updated program data", ConsoleColor.Green);
-            }
         }
         public static async Task CheckForUninstaller()
         {
@@ -51,6 +33,17 @@ namespace MinecraftServerSoftware.Runtime
                 wc.DownloadFile("https://github.com/CrazyWillBear/MinecraftServerManager/releases/download/" + latest.TagName + "/" + "uninstaller.zip", Program.appdata + @".\uninstall\uninstaller.zip");
                 System.IO.Compression.ZipFile.ExtractToDirectory(Program.appdata + @".\uninstall\uninstaller.zip", Program.appdata + @".\uninstall");
                 File.Delete(Program.appdata + @".\uninstall\MCServerSoftware.zip");
+            }
+        }
+
+        public static async Task CheckForUpdate()
+        {
+            GitHubClient client = new GitHubClient(new ProductHeaderValue("MinecraftServerManager"));
+            var releases = await client.Repository.Release.GetAll("CrazyWillBear", "MinecraftServerManager");
+            var latest = releases[0];
+            if (latest.ToString() != Program.version)
+            {
+                Screen.PrintLn("\n::An update is required, please rerun the latest installer or update using Scoop (depending on how the software was installed)");
             }
         }
     }
