@@ -77,7 +77,7 @@ namespace MinecraftServerSoftware.Operations
                     case CommandOrganizer.Operation.WipeWorld:
                         break;
                     case CommandOrganizer.Operation.ListServers:
-                        if (Directory.GetDirectories(@".\server\").Length < 1)
+                        if (Directory.GetDirectories(Program.appdata + @".\server\").Length < 1)
                         {
                             Screen.PrintLn("\n::There are no servers on this computer", ConsoleColor.Green);
                             Environment.Exit(0);
