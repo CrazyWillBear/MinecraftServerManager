@@ -446,11 +446,3 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-## Compiled
-/MinecraftServerSoftware/bin
-/MinecraftServerSoftware/obj
-/MinecraftServerSoftware-Installer/bin
-/MinecraftServerSoftware-Installer/obj
-/MinecraftServerSoftware-Uninstaller/bin
-/MinecraftServerSoftware-Uninstaller/obj
