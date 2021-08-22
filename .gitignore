@@ -448,9 +448,9 @@ $RECYCLE.BIN/
 !.vscode/extensions.json
 
 ## Compiled
-MinecraftServerSoftware/bin
-MinecraftServerSoftware/obj
-MinecraftServerSoftware-Installer/bin
-MinecraftServerSoftware-Installer/obj
-MinecraftServerSoftware-Uninstaller/bin
-MinecraftServerSoftware-Uninstaller/obj
+/MinecraftServerSoftware/bin
+/MinecraftServerSoftware/obj
+/MinecraftServerSoftware-Installer/bin
+/MinecraftServerSoftware-Installer/obj
+/MinecraftServerSoftware-Uninstaller/bin
+/MinecraftServerSoftware-Uninstaller/obj
